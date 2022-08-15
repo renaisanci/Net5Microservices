@@ -5,11 +5,10 @@ namespace Basket.API.Configuration
 {
     public static class RedisConfig
     {
-        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddRedisCache(this IServiceCollection services, IConfiguration configuration)
         {
-
-            services.AddStackExchangeRedisCache(opt => opt.Configuration="localhost:6379");
-           
+            services.AddStackExchangeRedisCache(opt => opt.Configuration= configuration.GetValue<string>("CachingSettings:ConnectionString"));           
         }
     }
 }
+
