@@ -28,6 +28,7 @@ namespace Basket.API
         {
 
             services.AddRedisCache(Configuration);
+            services.RegisterServices();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
